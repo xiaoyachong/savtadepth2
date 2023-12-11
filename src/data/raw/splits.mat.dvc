@@ -1,0 +1,9 @@
+md5: 26011289311c18b92781de66654223a4
+frozen: true
+deps:
+- etag: '"a42-4cb6a5fad2fc0"'
+  path: http://horatio.cs.nyu.edu/mit/silberman/indoor_seg_sup/splits.mat
+outs:
+- md5: 08e3c3aea27130ac7c01ffd739a4535f
+  path: splits.mat
+  size: 2626

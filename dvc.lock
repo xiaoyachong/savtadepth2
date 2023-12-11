@@ -1,0 +1,75 @@
+process_data:
+  cmd: python3 src/code/make_dataset.py src/data/raw/nyu_depth_v2_labeled.mat src/data/raw/splits.mat
+    src/data/processed
+  deps:
+  - path: src/code/make_dataset.py
+    md5: e069c7323c9be16baedd8f988375e145
+    size: 5256
+  - path: src/data/raw/nyu_depth_v2_labeled.mat
+    md5: 520609c519fba3ba5ac58c8fefcc3530
+    size: 2972037809
+  - path: src/data/raw/splits.mat
+    md5: 08e3c3aea27130ac7c01ffd739a4535f
+    size: 2626
+  outs:
+  - path: src/data/processed/
+    md5: 9a1f43f46e8b1c387532e994e721d57d.dir
+    size: 197717291
+    nfiles: 2898
+train:
+  cmd: python3 src/code/training.py src/data/processed/train
+  deps:
+  - path: src/code/custom_data_loading.py
+    md5: c94ea029ed76ca94bb1ad4c1655e5e68
+    size: 1916
+  - path: src/code/params.yml
+    md5: 88b982495a09b6d9355903e31e0b3b3f
+    size: 218
+  - path: src/code/training.py
+    md5: e3dff7f4b59e4ebf818d7631d3e6803a
+    size: 1683
+  - path: src/data/processed/train
+    md5: 9956d748dcadc3abadd1ff966a6e2b92.dir
+    size: 109120921
+    nfiles: 1590
+  outs:
+  - path: logs/train_metrics.csv
+    md5: 15b14c6b8a3c310a7149b3f1bac5d86f
+    size: 5920790
+  - path: logs/train_params.yml
+    md5: 4d148d75cab3dbaa91ec5fccb3382541
+    size: 887
+  - path: src/models/
+    md5: 8586da76f372efa83d832a9d0e664817.dir
+    size: 494927324
+    nfiles: 1
+eval:
+  cmd: python3 src/code/eval.py src/data/processed/test
+  deps:
+  - path: src/code/custom_data_loading.py
+    md5: c94ea029ed76ca94bb1ad4c1655e5e68
+    size: 1916
+  - path: src/code/eval.py
+    md5: 9ea6a6624fa14f15b4d51f9139395663
+    size: 1893
+  - path: src/code/eval_metric_calculation.py
+    md5: 2fc866e1107042a996087d5716d44bf0
+    size: 2999
+  - path: src/code/params.yml
+    md5: 88b982495a09b6d9355903e31e0b3b3f
+    size: 218
+  - path: src/data/processed/test
+    md5: bcccd66f3f561b53ba97c89a558c08a0.dir
+    size: 88596370
+    nfiles: 1308
+  - path: src/models/model.pth
+    md5: f421fb113498c7186fb734928484e013
+    size: 494927324
+  outs:
+  - path: logs/test_metrics.csv
+    md5: ee70c01208cdd018a567debd0abb1643
+    size: 340
+  - path: src/eval/examples/
+    md5: 70fdd803300cbdc6dd76dec2148e0e0c.dir
+    size: 425678
+    nfiles: 10

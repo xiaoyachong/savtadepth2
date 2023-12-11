@@ -1,0 +1,7 @@
+-f https://download.pytorch.org/whl/cpu/torch_stable.html
+dvc==2.9.5
+fastai==2.5.3
+torch==1.10.2+cpu
+opencv-python-headless==4.5.5.62
+tqdm==4.62.3
+gradio==2.8.1

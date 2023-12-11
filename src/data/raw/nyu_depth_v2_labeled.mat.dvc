@@ -1,0 +1,9 @@
+md5: d27a0ba6c898f981797a3388c26c2d0f
+frozen: true
+deps:
+- etag: '"b125b2b1-5aa5b95864fc7"'
+  path: http://horatio.cs.nyu.edu/mit/silberman/nyu_depth_v2/nyu_depth_v2_labeled.mat
+outs:
+- md5: 520609c519fba3ba5ac58c8fefcc3530
+  path: nyu_depth_v2_labeled.mat
+  size: 2972037809

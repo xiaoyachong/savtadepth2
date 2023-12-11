@@ -1,0 +1,9 @@
+.vscode/
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+.workspace/
+aws/
+google-cloud-sdk
+__pycache__/
+env/

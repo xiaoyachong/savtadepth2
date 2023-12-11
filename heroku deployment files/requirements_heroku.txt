@@ -1,0 +1,15 @@
+-f https://download.pytorch.org/whl/cpu/torch_stable.html
+dvc
+fastai
+torch==1.10.2+cpu
+h5py
+opencv-python-headless
+tqdm
+numpy
+scikit-learn
+dagshub
+tables
+fastapi
+gradio
+uvicorn
+jinja2

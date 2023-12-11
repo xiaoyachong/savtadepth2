@@ -1,0 +1,7 @@
+[core]
+    analytics = false
+    remote = origin
+['remote "origin"']
+    url = https://dagshub.com/OperationSavta/SavtaDepth.dvc
+['remote "upstream"']
+    url = https://dagshub.com/OperationSavta/SavtaDepth.dvc

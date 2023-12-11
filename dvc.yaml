@@ -1,0 +1,38 @@
+stages:
+  process_data:
+    cmd: python3 src/code/make_dataset.py src/data/raw/nyu_depth_v2_labeled.mat src/data/raw/splits.mat
+      src/data/processed
+    deps:
+    - src/code/make_dataset.py
+    - src/data/raw/nyu_depth_v2_labeled.mat
+    - src/data/raw/splits.mat
+    outs:
+    - src/data/processed/
+  train:
+    cmd: python3 src/code/training.py src/data/processed/train
+    deps:
+    - src/code/custom_data_loading.py
+    - src/code/params.yml
+    - src/code/training.py
+    - src/data/processed/train
+    outs:
+    - src/models/
+    - logs/train_params.yml:
+        cache: false
+    metrics:
+    - logs/train_metrics.csv:
+        cache: false
+  eval:
+    cmd: python3 src/code/eval.py src/data/processed/test
+    deps:
+    - src/code/params.yml
+    - src/code/custom_data_loading.py
+    - src/code/eval_metric_calculation.py
+    - src/code/eval.py
+    - src/models/model.pth
+    - src/data/processed/test
+    outs:
+    - src/eval/examples/
+    metrics:
+    - logs/test_metrics.csv:
+        cache: false

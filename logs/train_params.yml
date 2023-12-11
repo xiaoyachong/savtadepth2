@@ -1,0 +1,25 @@
+DAGsHubLogger: true
+Learner: <fastai.learner.Learner object at 0x7fcf56717fd0>
+ParamScheduler: true
+ProgressCallback: true
+Recorder: {add_time: true, train_metrics: false, valid_metrics: true}
+TrainEvalCallback: true
+batch per epoch: 159
+batch size: 4
+dataset.tfms: '[Pipeline: PILBase.create, Pipeline: get_y_fn -> PILBase.create]'
+device: cuda
+dls.after_batch: "Pipeline: IntToFloatTensor -- {'div': 255.0, 'div_mask': 1} -> Normalize\
+  \ -- {'mean': tensor([[[[0.4850]],\n\n         [[0.4560]],\n\n         [[0.4060]]]],\
+  \ device='cuda:0'), 'std': tensor([[[[0.2290]],\n\n         [[0.2240]],\n\n    \
+  \     [[0.2250]]]], device='cuda:0'), 'axes': (0, 2, 3)}"
+dls.after_item: 'Pipeline: ToTensor'
+dls.before_batch: 'Pipeline: '
+frozen: false
+frozen idx: 0
+input 1 dim 1: 4
+input 1 dim 2: 3
+input 1 dim 3: 480
+input 1 dim 4: 640
+model parameters: 41221268
+n_inp: 1
+success: true
